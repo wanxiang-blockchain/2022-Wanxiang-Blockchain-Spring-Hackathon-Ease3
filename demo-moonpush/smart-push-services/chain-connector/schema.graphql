@@ -1,0 +1,53 @@
+type BlockFee @entity {
+  id: ID!
+  blockNumber: Int!
+  fees: String!
+  burnt: String!
+  to_treasury: String!
+  timestamp: Date
+  max_gasfee_on_evm: String!
+  fees_substrate: String!
+  fees_evm: String!
+}
+
+type SubstrateBlockEntity @entity {
+  id: ID!
+  block_number: Int!
+  timestamp: Date!
+  hash: String!
+  runtime_version: Int
+  created_at: Date!
+}
+
+type SubstrateExtrinsicEntity @entity {
+  id: ID!
+  block_number: Int!
+  index_in_block: Int!
+  section: String!
+  method: String!
+  name: String
+  args: String
+  signer: String
+  signature: String
+  hash: String
+  created_at: Date!
+  timestamp: Date
+}
+
+type SubstrateEventEntity @entity {
+  id: ID!
+  block_number: Int!
+  name: String!
+  section: String!
+  method: String!
+  index_in_extrinsic: Int
+
+  data: String
+  extrinsic_id: String
+
+  evm_contract_address: String
+  evm_method_hash: String
+
+  created_at: Date!
+  timestamp: Date
+}

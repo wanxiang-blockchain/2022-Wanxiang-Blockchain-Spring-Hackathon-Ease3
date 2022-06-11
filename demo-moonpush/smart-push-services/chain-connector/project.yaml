@@ -1,0 +1,23 @@
+specVersion: 0.2.0
+description: "moonriver indexer"
+repository: ""
+schema:
+  file: ./schema.graphql
+network:
+  
+  # endpoint: ws://16.163.221.27:9944  3.1.235.180
+  endpoint: ws://3.1.235.180:9944  
+  genesisHash: "0x401a1f9dca3da46f5c4091016c8a2f26dcea05865116b286f60f668207d1474b"
+  chaintypes:
+    file: ./dist/chaintypes.js
+dataSources:
+  - name: main
+    kind: substrate/Runtime
+    startBlock: 1754600
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleCall
+          kind: substrate/CallHandler

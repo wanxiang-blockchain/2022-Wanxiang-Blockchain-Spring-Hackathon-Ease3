@@ -1,0 +1,32 @@
+{
+  "name": "substrate-layer-indexer-moonriver",
+  "description": "",
+  "version": "0.0.1",
+  "author": "team@web3go.xyz",
+  "private": true,
+  "license": "Apache 2.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "prepack": "rm -rf dist && npm build",
+    "test": "jest",
+    "codegen": "./node_modules/.bin/subql codegen"
+  },
+  "files": [
+    "dist",
+    "schema.graphql",
+    "project.yaml"
+  ],
+  "devDependencies": {
+    "@polkadot/api": "^6",
+    "@subql/cli": "^0.16.2",
+    "@subql/types": "latest",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "moonbeam-types-bundle": "^2.0.2"
+  },
+  "exports": {
+    "chaintypes": "./src/chaintypes.ts"
+  }
+}
